@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3w8ptkrv2gjx"]
+
+[ext_resource type="Script" path="res://Scripts/Actors/ItemTask.gd" id="1_higku"]
+[ext_resource type="Theme" uid="uid://d3l8owfupvwbp" path="res://Theme/ListTheme.tres" id="2_5mqsx"]
+[ext_resource type="Theme" uid="uid://sumalqx2c461" path="res://Theme/WhiteRoundedTheme.tres" id="3_k2ddv"]
+
+[node name="ItemTask" type="Control"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -60.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_higku")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 230.0
+offset_bottom = 60.0
+mouse_filter = 1
+theme = ExtResource("2_5mqsx")
+text = "subject title"
+text_overrun_behavior = 1
+clip_text = true
+
+[node name="ButtonRemove" type="Button" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_right = 300.0
+offset_bottom = 60.0
+mouse_filter = 1
+theme = ExtResource("2_5mqsx")
+text = "X"
+
+[node name="CrossOver" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 35.0
+offset_bottom = 26.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="CrossOver"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 45.0
+offset_bottom = 5.0
+rotation = 0.785398
+mouse_filter = 2
+theme = ExtResource("3_k2ddv")
+
+[node name="Panel2" type="Panel" parent="CrossOver"]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 40.0
+offset_bottom = 36.0
+rotation = -0.785398
+mouse_filter = 2
+theme = ExtResource("3_k2ddv")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="gui_input" from="Button" to="." method="_on_button_gui_input"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonRemove" to="." method="_on_button_remove_pressed"]

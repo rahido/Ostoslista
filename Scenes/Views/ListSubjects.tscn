@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc6miicyx4kv0"]
+
+[ext_resource type="Script" path="res://Scripts/Views/ListSubjects.gd" id="1_nxmxg"]
+[ext_resource type="Theme" uid="uid://cff2iok4atu1r" path="res://Theme/ActionTheme.tres" id="2_jhewg"]
+[ext_resource type="Theme" uid="uid://d3l8owfupvwbp" path="res://Theme/ListTheme.tres" id="3_1v4cm"]
+
+[node name="List2Subjects" type="Node2D"]
+script = ExtResource("1_nxmxg")
+
+[node name="ButtonCreateSubject" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 192.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme = ExtResource("2_jhewg")
+text = "Luo"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 20.0
+offset_top = 110.0
+offset_right = 340.0
+offset_bottom = 750.0
+theme = ExtResource("3_1v4cm")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 20.0
+offset_top = 120.0
+offset_right = 340.0
+offset_bottom = 740.0
+
+[node name="ItemsContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="ButtonCreateSubject" to="." method="_on_button_create_subject_pressed"]

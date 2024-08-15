@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d3l8owfupvwbp"]
+
+[ext_resource type="StyleBox" uid="uid://bgvx23jed30sw" path="res://Theme/Panel/ListStyle.tres" id="1_d0haa"]
+[ext_resource type="StyleBox" uid="uid://dldwab8myviil" path="res://Theme/Button/ListButtonStyleBox.tres" id="1_s0fmx"]
+
+[resource]
+default_font_size = 18
+Button/colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
+Button/styles/normal = ExtResource("1_s0fmx")
+Panel/styles/panel = ExtResource("1_d0haa")

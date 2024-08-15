@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=3 uid="uid://lk2k61mouil"]
+
+[ext_resource type="Script" path="res://Scripts/Views/ListPromptView.gd" id="1_0ongx"]
+[ext_resource type="Theme" uid="uid://d3l8owfupvwbp" path="res://Theme/ListTheme.tres" id="2_4vm8c"]
+
+[sub_resource type="Animation" id="Animation_75m4n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LineEditNewTitle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 178)]
+}
+
+[sub_resource type="Animation" id="Animation_mh7lp"]
+resource_name = "promptInputBounce"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LineEditNewTitle:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(20, 178), Vector2(20, 160), Vector2(20, 182), Vector2(20, 172), Vector2(20, 178)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5nwr"]
+_data = {
+"RESET": SubResource("Animation_75m4n"),
+"promptInputBounce": SubResource("Animation_mh7lp")
+}
+
+[node name="TaskPromptView" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 800.0
+script = ExtResource("1_0ongx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.196078, 0.905882)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 360.0
+offset_bottom = 360.0
+theme = ExtResource("2_4vm8c")
+
+[node name="PromptLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 120.0
+offset_right = 340.0
+offset_bottom = 170.0
+text = "Prompt label:"
+scroll_active = false
+
+[node name="LineEditNewTitle" type="LineEdit" parent="."]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 178.0
+offset_right = 340.0
+offset_bottom = 242.0
+placeholder_text = "Input PlaceHolder"
+alignment = 1
+max_length = 50
+
+[node name="ButtonConfirm" type="Button" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 284.0
+offset_right = 150.0
+offset_bottom = 331.0
+text = "Luo"
+
+[node name="ButtonCancel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 284.0
+offset_right = 310.0
+offset_bottom = 331.0
+text = "Peru"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_u5nwr")
+}
+
+[connection signal="pressed" from="ButtonConfirm" to="." method="_on_button_confirm_pressed"]
+[connection signal="pressed" from="ButtonCancel" to="." method="_on_button_cancel_pressed"]

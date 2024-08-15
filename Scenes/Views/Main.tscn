@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://gcrtdrj2lq03"]
+
+[ext_resource type="Script" path="res://Scripts/Views/Main.gd" id="1_rik1s"]
+
+[node name="Main2" type="Node2D"]
+script = ExtResource("1_rik1s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 360.0
+offset_bottom = 800.0
+color = Color(0.431373, 0.411765, 0.341176, 1)

@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcbtm7xv6nu68"]
+
+[ext_resource type="Script" path="res://Scripts/Views/ListTasks.gd" id="1_qa328"]
+[ext_resource type="Theme" uid="uid://d3l8owfupvwbp" path="res://Theme/ListTheme.tres" id="2_gr57l"]
+[ext_resource type="Theme" uid="uid://cff2iok4atu1r" path="res://Theme/ActionTheme.tres" id="3_cjk85"]
+[ext_resource type="Theme" uid="uid://sumalqx2c461" path="res://Theme/WhiteRoundedTheme.tres" id="4_3uycx"]
+
+[node name="List2Tasks" type="Node2D"]
+script = ExtResource("1_qa328")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 20.0
+offset_top = 180.0
+offset_right = 340.0
+offset_bottom = 760.0
+theme = ExtResource("2_gr57l")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 20.0
+offset_top = 190.0
+offset_right = 340.0
+offset_bottom = 750.0
+
+[node name="ItemsContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonBack" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 80.0
+offset_bottom = 160.0
+theme = ExtResource("3_cjk85")
+clip_text = true
+
+[node name="Panel" type="Panel" parent="ButtonBack"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 25.1421
+offset_right = 34.0
+offset_bottom = 31.1421
+rotation = 0.785398
+pivot_offset = Vector2(0, 6)
+mouse_filter = 2
+theme = ExtResource("4_3uycx")
+
+[node name="Panel2" type="Panel" parent="ButtonBack"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 31.1421
+offset_right = 34.0
+offset_bottom = 37.1421
+rotation = -0.785398
+mouse_filter = 2
+theme = ExtResource("4_3uycx")
+
+[node name="Panel3" type="Panel" parent="ButtonBack"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 26.1421
+offset_right = 45.0
+offset_bottom = 36.1421
+mouse_filter = 2
+theme = ExtResource("4_3uycx")
+
+[node name="PanelTitle" type="Panel" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 340.0
+offset_bottom = 90.0
+mouse_filter = 2
+theme = ExtResource("2_gr57l")
+
+[node name="LabelSubjectTitle" type="RichTextLabel" parent="PanelTitle"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 23.0
+offset_right = 310.0
+offset_bottom = 70.0
+bbcode_enabled = true
+text = "Subject Label
+"
+
+[node name="ButtonCreateTask" type="Button" parent="."]
+offset_left = 240.0
+offset_top = 100.0
+offset_right = 340.0
+offset_bottom = 160.0
+theme = ExtResource("3_cjk85")
+text = "Luo
+"
+
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="ButtonCreateTask" to="." method="_on_button_create_task_pressed"]
